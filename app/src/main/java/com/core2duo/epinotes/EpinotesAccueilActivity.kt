@@ -9,3 +9,5 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         setContentView(R.layout.activity_epinotes_accueil2)
     }
 }
+
+
