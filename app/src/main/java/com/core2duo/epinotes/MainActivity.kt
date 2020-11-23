@@ -18,9 +18,10 @@ import com.microsoft.identity.client.exception.MsalUiRequiredException
 import kotlinx.serialization.json.JSON*/
 import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
     lateinit var connexion_button : Button
     lateinit var epinotes_access_button : Button
+    //lateinit var data_response : JSONObject
 
     var mSingleAccountApp: ISingleAccountPublicClientApplication? = null
 
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
 
-        println("avant click########################")
         connexion_button = findViewById(R.id.connexion_button)
         connexion_button.setOnClickListener {
 
@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         epinotes_access_button = findViewById(R.id.epinotes_access_button)
         val intent_epinotes_access : Intent =  Intent(this,EpinotesAccueilActivity::class.java)
         epinotes_access_button.setOnClickListener {
+
 
            startActivity(intent_epinotes_access)
 
@@ -105,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun callGraphAPI(authenticationResult: IAuthenticationResult) {
+     fun callGraphAPI(authenticationResult: IAuthenticationResult) {
         MSGraphRequestWrapper.callGraphAPIWithVolley(
                 this as Context,
                 "https://graph.microsoft.com/v1.0/me",
@@ -114,12 +115,14 @@ class MainActivity : AppCompatActivity() {
                 Response.Listener<JSONObject> { response ->
                     /* Successfully called graph, process data and send to UI */
 //                Log.d(TAG, "Response: $response")
+                    //data_response = response
                     displayGraphResult(response)
                 },
                 Response.ErrorListener { error ->
-//                Log.d(TAG, "Error: $error")
+//                Log.d(TAG, "Error: $error")"J'ai appuye sur le bouton."
 //                displayError(error)
                 })
+
     }
     private fun loadAccount() {
         if (mSingleAccountApp == null) {
