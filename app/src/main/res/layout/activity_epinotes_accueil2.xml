@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-    <TextView
-        android:id="@+id/requete_text_view"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Requete non effectuee" />
-    <TextView
-        android:id="@+id/text"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="On va voir ce que ca donne" />
-    <Button
-        android:id="@+id/request_button"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:fillViewport="false">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Bouton executer la requette" />
-</LinearLayout>
+        android:layout_height="fill_parent" >
+        <TextView
+            android:id="@+id/requete_text_view"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Requete non effectuee" />
+        <TextView
+            android:id="@+id/text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="On va voir ce que ca donne" />
+        <Button
+            android:id="@+id/request_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Bouton executer la requette" />
+    </LinearLayout>
+
+</ScrollView>
