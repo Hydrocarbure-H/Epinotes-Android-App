@@ -16,7 +16,6 @@ import org.json.JSONObject
 class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var request_button : Button
     lateinit var requete_retour_TextView : TextView
-    //var data_response : JSONObject = MainActivity().data_response
 
 
 
@@ -35,10 +34,9 @@ class EpinotesAccueilActivity : AppCompatActivity() {
 
 // Instantiate the RequestQueue.
             val queue = Volley.newRequestQueue(this)
-//            var mail = data_response.getString("displayName")
-//            println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
-//            println(mail)
-            var url = "https://epinotes.core2duo.fr/connect_android.php?var="
+           // var mail = MainActivity().data_response.getString("mail")
+            var mail = "thomas.peugnet@epita.fr"
+            var url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail
 
 // Request a string response from the provided URL.
             val stringRequest = StringRequest(Request.Method.GET, url,

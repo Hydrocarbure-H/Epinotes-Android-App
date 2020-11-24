@@ -21,7 +21,7 @@ import org.json.JSONObject
 public class MainActivity : AppCompatActivity() {
     lateinit var connexion_button : Button
     lateinit var epinotes_access_button : Button
-    //lateinit var data_response : JSONObject
+    lateinit var data_response : JSONObject
 
     var mSingleAccountApp: ISingleAccountPublicClientApplication? = null
 
@@ -58,11 +58,13 @@ public class MainActivity : AppCompatActivity() {
 
            mSingleAccountApp!!.signIn(this as Activity, "", arrayOf("user.read"), getAuthInteractiveCallback())
 
+
+
         }
+
         epinotes_access_button = findViewById(R.id.epinotes_access_button)
         val intent_epinotes_access : Intent =  Intent(this,EpinotesAccueilActivity::class.java)
         epinotes_access_button.setOnClickListener {
-
 
            startActivity(intent_epinotes_access)
 
@@ -112,13 +114,12 @@ public class MainActivity : AppCompatActivity() {
                 "https://graph.microsoft.com/v1.0/me",
 //            msgraph_url.text.toString(),
                 authenticationResult.accessToken,
-                Response.Listener<JSONObject> { response ->
+                { response ->
                     /* Successfully called graph, process data and send to UI */
 //                Log.d(TAG, "Response: $response")
-                    //data_response = response
-                    displayGraphResult(response)
+                    convertGraphResult(response)
                 },
-                Response.ErrorListener { error ->
+                { error ->
 //                Log.d(TAG, "Error: $error")"J'ai appuye sur le bouton."
 //                displayError(error)
                 })
@@ -148,9 +149,13 @@ public class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun displayGraphResult(graphResponse: JSONObject) {
-        println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
-        println(graphResponse.toString())
+    private fun convertGraphResult(graphResponse: JSONObject) {
+        println("Recuperation du JSON")
+        // Rendre le JSON accessible
+        data_response = graphResponse
+        // Prepaprer le JSON a etre ecrit dans un fichier texte
+        var data_respons_stringe = graphResponse.toString()
+
     }
 
     private fun updateUI(account: IAccount?) {
