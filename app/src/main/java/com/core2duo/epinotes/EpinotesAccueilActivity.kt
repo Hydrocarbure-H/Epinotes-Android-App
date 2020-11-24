@@ -32,6 +32,9 @@ class EpinotesAccueilActivity : AppCompatActivity() {
 
 
 
+
+
+
 // Instantiate the RequestQueue.
             val queue = Volley.newRequestQueue(this)
            // var mail = MainActivity().data_response.getString("mail")
