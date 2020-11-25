@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EPINOTES">
+        android:theme="@style/Theme.EPINOTES"
+        >
         <activity android:name=".EpinotesAccueilActivity"></activity>
-        <activity android:name=".epinotes_accueil" />
-        <activity android:name=".MainActivity">
+                <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
