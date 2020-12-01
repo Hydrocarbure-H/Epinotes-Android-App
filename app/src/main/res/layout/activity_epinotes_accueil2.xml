@@ -8,7 +8,7 @@
     android:padding="10dp"
     android:fillViewport="false">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -20,6 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Nom Prenom" />
+
+        <ImageView
+            android:id="@+id/login_img"
+            android:layout_gravity="left"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/default_login" />
+
         <TextView
             android:id="@+id/campus_text_view"
             android:layout_height="wrap_content"
@@ -31,6 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bouton executer la requette" />
+
+
     </LinearLayout>
 
 </ScrollView>

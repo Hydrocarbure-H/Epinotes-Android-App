@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
@@ -26,10 +27,8 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var request_button : Button
     lateinit var name_text_view : TextView
     lateinit var campus_text_view : TextView
-    lateinit var mail : String
-    lateinit var request : String
+    lateinit var login_imgView : ImageView
     lateinit var url : String
-    lateinit var campus : String
     lateinit var answer : String
     private  val verification_code = "djhfbezqilbfiuyezbf15q16qreqerg54bj654kuyl654iuys65v1q6fv5atr651grtb65ytrdgn1dsf6h5dhj4ds6b4dn4bds1s681";
 
@@ -44,8 +43,10 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         request_button = findViewById(R.id.request_button)
         name_text_view= findViewById(R.id.name_text_view) as TextView
         campus_text_view = findViewById(R.id.campus_text_view) as TextView
+        login_imgView = findViewById(R.id.login_img) as ImageView
 
         requestToDo("thomas.peugnet@epita.fr", "nom", name_text_view)
+
 
         request_button.setOnClickListener {
 
@@ -56,7 +57,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
             //requestToDo("thomas.peugnet@epita.fr", "campus", campus_text_view)
 
             url = "https://epinotes.core2duo.fr/connect_android.php?mail=thomas.peugnet@epita.fr&code_verification=" + verification_code + "&requete=name"
-            println(answer)
+            name_text_view.text = answer
 
         }
 
