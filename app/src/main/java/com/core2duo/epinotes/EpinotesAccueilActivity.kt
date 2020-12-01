@@ -15,6 +15,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.nimbusds.jose.Header.parse
+import com.squareup.picasso.Picasso
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
@@ -23,10 +24,8 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 
+
 class EpinotesAccueilActivity : AppCompatActivity() {
-    lateinit var request_button : Button
-    lateinit var name_text_view : TextView
-    lateinit var campus_text_view : TextView
     lateinit var login_imgView : ImageView
     lateinit var url : String
     lateinit var answer : String
@@ -40,52 +39,35 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_epinotes_accueil2)
-        request_button = findViewById(R.id.request_button)
-        name_text_view= findViewById(R.id.name_text_view) as TextView
-        campus_text_view = findViewById(R.id.campus_text_view) as TextView
         login_imgView = findViewById(R.id.login_img) as ImageView
 
-        requestToDo("thomas.peugnet@epita.fr", "nom", name_text_view)
-
-
-        request_button.setOnClickListener {
+        requestToDo("thomas.peugnet@epita.fr", "login")
 
             //Mail verification;  if mail is in the admin array -> redirection to EpinotesAccueilADMINActvitiy
-
            // var mail = MainActivity().data_response.getString("mail")
 
-            //requestToDo("thomas.peugnet@epita.fr", "campus", campus_text_view)
-
-            url = "https://epinotes.core2duo.fr/connect_android.php?mail=thomas.peugnet@epita.fr&code_verification=" + verification_code + "&requete=name"
-            name_text_view.text = answer
-
-        }
+        url = "https://epinotes.core2duo.fr/connect_android.php?mail=thomas.peugnet@epita.fr&code_verification=" + verification_code + "&requete=name"
+        Picasso.get().load("https://photos.cri.epita.fr/thomas.peugnet").into(login_imgView);
 
     }
 
 
 
-    fun requestToDo( mail : String, request : String, text_view : TextView)
-    {
+    fun requestToDo( mail : String, request : String)
+    {//Do the request to the server
         val queue = Volley.newRequestQueue(this)
 
         url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail + "&code_verification=" + verification_code + "&requete=" + request
 
         var stringRequest = StringRequest(Request.Method.GET, url,
                 Response.Listener{ response ->
-
                     answer = response
-
-
-
                 },
                 {
                     fun Context.toast(message: CharSequence) =
                             Toast.makeText(this, "Erreur : Impossible d'effectuer la requete.", Toast.LENGTH_SHORT).show()
                 })
         queue.add(stringRequest)
-
-
     }
 
 
