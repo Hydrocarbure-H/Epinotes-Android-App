@@ -36,7 +36,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/font1"
                     android:text="Accueil"
-                    android:textSize="60sp" />
+                    android:textSize="50sp" />
         </RelativeLayout>
 
         <Button
@@ -60,7 +60,7 @@
             android:focusable="true"
             android:text="Annales et Fiches  " />
         <Button
-
+            android:id="@+id/coursDuJour_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -79,7 +79,7 @@
             android:focusable="true"
             android:text="Cours du Jour" />
         <Button
-
+            android:id="@+id/suggestion_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -98,7 +98,7 @@
             android:focusable="true"
             android:text="Une idée ?" />
         <Button
-
+            android:id="@+id/uploadCours_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -117,7 +117,7 @@
             android:focusable="true"
             android:text="Uploader mes cours" />
         <Button
-
+            android:id="@+id/examens_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -136,7 +136,7 @@
             android:focusable="true"
             android:text="Examens" />
         <Button
-
+            android:id="@+id/emploiDuTemps_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -155,28 +155,9 @@
             android:focusable="true"
             android:text="Emploi du temps" />
 
-        <Button
-
-            android:drawableEnd="@drawable/epinotes_btn_50px"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:shadowColor="#FF000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/font1"
-            android:background="@drawable/accueil_buttons_background"
-            android:paddingEnd="40dp"
-            android:paddingStart="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_margin="10dp"
-            android:focusable="true"
-            android:text="Cours du jour !" />
 
         <Button
-
+            android:id="@+id/parametres_button"
             android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
