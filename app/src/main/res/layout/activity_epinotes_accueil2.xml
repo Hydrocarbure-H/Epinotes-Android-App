@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/bg_color"
     android:color="#FFF"
@@ -13,13 +12,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         >
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginBottom="40dp"
-            android:padding="10px"
+            android:padding="10dp"
             android:background="@drawable/background_roundcorners">
 
                 <ImageView
@@ -27,33 +26,34 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/default_login"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="Login_Picture" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="10px"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
                     android:fontFamily="@font/font1"
                     android:text="Accueil"
-                    android:textSize="100px" />
+                    android:textSize="60sp" />
         </RelativeLayout>
 
         <Button
 
             android:id="@+id/annalesEtFiches_button"
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -61,18 +61,18 @@
             android:text="Annales et Fiches  " />
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -80,18 +80,18 @@
             android:text="Cours du Jour" />
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:fontFamily="@font/font1"
             android:textStyle="bold"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -99,18 +99,18 @@
             android:text="Une idée ?" />
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -118,18 +118,18 @@
             android:text="Uploader mes cours" />
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -137,18 +137,18 @@
             android:text="Examens" />
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -157,18 +157,18 @@
 
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -177,18 +177,18 @@
 
         <Button
 
-            android:drawableRight="@drawable/epinotes_btn_50px"
+            android:drawableEnd="@drawable/epinotes_btn_50px"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:shadowColor="#FF000000"
-            android:textSize="16dip"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
-            android:paddingRight="40dp"
-            android:paddingLeft="30dp"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
