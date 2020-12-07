@@ -154,7 +154,7 @@ public class MainActivity : AppCompatActivity() {
         // Rendre le JSON accessible
         data_response = graphResponse
         // Prepaprer le JSON a etre ecrit dans un fichier texte
-        var data_respons_stringe = graphResponse.toString()
+        //var data_respons_stringe = graphResponse.toString()
 
     }
 

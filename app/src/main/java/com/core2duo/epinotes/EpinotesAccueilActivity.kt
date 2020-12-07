@@ -2,6 +2,7 @@ package com.core2duo.epinotes
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,6 +36,11 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var emploi_du_temps_button : Button
     lateinit var parametres_button : Button
 
+    lateinit var mail_address: String
+    lateinit var login: String
+    lateinit var edt_id: String
+    lateinit var name: String
+    lateinit var url_activity : String
     lateinit var url : String
     lateinit var answer : String
     private  val verification_code = "djhfbezqilbfiuyezbf15q16qreqerg54bj654kuyl654iuys65v1q6fv5atr651grtb65ytrdgn1dsf6h5dhj4ds6b4dn4bds1s681";
@@ -58,21 +64,32 @@ class EpinotesAccueilActivity : AppCompatActivity() {
 
         requestToDo("thomas.peugnet@epita.fr", "login")
 
-            //Mail verification;  if mail is in the admin array -> redirection to EpinotesAccueilADMINActvitiy
-           // var mail = MainActivity().data_response.getString("mail")
+        //  Mail verification;  if mail is in the admin array -> redirection to EpinotesAccueilADMINActvitiy
+        //  mail_address = MainActivity().data_response.getString("mail")
+        //  login = MainActivity().data_response.getString("login")
+        //  name = MainActivity().data_response.getString("name")
+        // edt_id = TROUVER COMMENT RECUPERE CETTE PARTIE. REQUET DB
 
-        //url = "https://epinotes.core2duo.fr/connect_android.php?mail=thomas.peugnet@epita.fr&code_verification=" + verification_code + "&requete=name"
+        // Changement image de profil CRI
         Picasso.get().load("https://photos.cri.epita.fr/thomas.peugnet").into(login_imgView);
+
+
+        emploi_du_temps_button.setOnClickListener {
+            url_activity = "https://toulouse.epita.fr/plannings/toulouse/9a05d9d2264bff818afca506c7fb8ec0.php"
+            val intent_emploi_du_temps : Intent =  Intent(this,WebSiteActivity::class.java)
+            startActivity(intent_emploi_du_temps)
+
+        }
 
     }
 
 
 
-    fun requestToDo( mail : String, request : String)
+    fun requestToDo( mail_address : String, request : String)
     {//Do the request to the server
         val queue = Volley.newRequestQueue(this)
 
-        url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail + "&code_verification=" + verification_code + "&requete=" + request
+        url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request
 
         var stringRequest = StringRequest(Request.Method.GET, url,
                 Response.Listener{ response ->

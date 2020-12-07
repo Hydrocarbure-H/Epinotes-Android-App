@@ -8,10 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EPINOTES"
-        >
-        <activity android:name=".EpinotesAccueilActivity"></activity>
-                <activity android:name=".MainActivity">
+        android:theme="@style/Theme.EPINOTES">
+        <activity
+            android:name=".WebSiteActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_web_site"
+            android:theme="@style/Theme.EPINOTES.Fullscreen"></activity>
+        <activity android:name=".EpinotesAccueilActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
