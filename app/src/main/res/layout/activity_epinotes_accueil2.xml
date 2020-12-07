@@ -7,6 +7,7 @@
     android:background="@color/bg_color"
     android:color="#FFF"
     android:padding="10dp"
+    android:fontFamily="@font/font1"
     android:fillViewport="false">
 
     <LinearLayout
@@ -14,32 +15,28 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         >
-        //Header
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginBottom="40dp">
-            //Round Corners of the login picture
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="3dp"
-                android:layout_alignParentRight="true">
+            android:layout_marginBottom="40dp"
+            android:padding="10px"
+            android:background="@drawable/background_roundcorners">
 
                 <ImageView
                     android:id="@+id/login_img"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/default_login" />
-            </androidx.cardview.widget.CardView>
+                    android:src="@drawable/default_login"
+                    android:layout_alignParentRight="true"/>
 
                 <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Accueil"
-                android:textSize="100px" />
-        // Fin du Header
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10px"
+                    android:fontFamily="@font/font1"
+                    android:text="Accueil"
+                    android:textSize="100px" />
         </RelativeLayout>
 
         <Button
@@ -53,6 +50,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -71,6 +69,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -88,6 +87,7 @@
             android:textColor="#000"
             android:shadowColor="#FF000000"
             android:textSize="16dip"
+            android:fontFamily="@font/font1"
             android:textStyle="bold"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
@@ -107,6 +107,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -125,6 +126,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -143,6 +145,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -162,6 +165,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
@@ -181,6 +185,7 @@
             android:shadowColor="#FF000000"
             android:textSize="16dip"
             android:textStyle="bold"
+            android:fontFamily="@font/font1"
             android:background="@drawable/accueil_buttons_background"
             android:paddingRight="40dp"
             android:paddingLeft="30dp"
