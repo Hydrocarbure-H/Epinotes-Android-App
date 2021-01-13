@@ -33,6 +33,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var suggestion_button : Button
     lateinit var upload_cours_button : Button
     lateinit var examens_button : Button
+    lateinit var epimessages_button : Button
     lateinit var emploi_du_temps_button : Button
     lateinit var parametres_button : Button
 
@@ -60,6 +61,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         suggestion_button = findViewById(R.id.suggestion_button) as Button
         upload_cours_button = findViewById(R.id.uploadCours_button) as Button
         examens_button = findViewById(R.id.examens_button) as Button
+        epimessages_button = findViewById(R.id.epimessages_button) as Button
         emploi_du_temps_button = findViewById(R.id.emploiDuTemps_button) as Button
         parametres_button = findViewById(R.id.parametres_button) as Button
 
@@ -81,10 +83,30 @@ class EpinotesAccueilActivity : AppCompatActivity() {
             val intent_emploi_du_temps : Intent =  Intent(this,WebSiteActivity::class.java)
             startActivity(intent_emploi_du_temps)
         }
-
         suggestion_button.setOnClickListener {
             val intent_suggestion : Intent =  Intent(this,SuggestionActivity::class.java)
             startActivity(intent_suggestion)
+        }
+        annales_et_fiches_button.setOnClickListener {
+            val intent_annales : Intent =  Intent(this,AnnalesEtFichesActivity::class.java)
+            startActivity(intent_annales)
+        }
+        cours_du_jour_button.setOnClickListener {
+            val intent_cours : Intent =  Intent(this,CoursDuJourActivity::class.java)
+            startActivity(intent_cours)
+        }
+        examens_button.setOnClickListener {
+            val intent_examens : Intent =  Intent(this,ExamensActivity::class.java)
+            startActivity(intent_examens)
+        }
+        upload_cours_button.setOnClickListener {
+            val intent_upload : Intent =  Intent(this,UploadActivity::class.java)
+            startActivity(intent_upload)
+        }
+
+        parametres_button.setOnClickListener {
+            val intent_parametres : Intent =  Intent(this,ParametresActivity::class.java)
+            startActivity(intent_parametres)
         }
 
     }

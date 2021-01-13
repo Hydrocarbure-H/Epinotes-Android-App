@@ -9,10 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPINOTES">
+        <activity android:name=".ExamensActivity"></activity>
+        <activity android:name=".EpimessagesActivity" />
+        <activity android:name=".ParametresActivity" />
+        <activity android:name=".ExemensActivity" />
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".CoursDuJourActivity" />
+        <activity android:name=".AnnalesEtFichesActivity" />
         <activity
             android:name=".SuggestionActivity"
             android:label="@string/title_activity_suggestion"
-            android:theme="@style/Theme.EPINOTES.NoActionBar"></activity>
+            android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
             android:name=".WebSiteActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
