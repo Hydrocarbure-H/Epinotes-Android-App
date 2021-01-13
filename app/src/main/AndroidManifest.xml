@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPINOTES">
         <activity
+            android:name=".SuggestionActivity"
+            android:label="@string/title_activity_suggestion"
+            android:theme="@style/Theme.EPINOTES.NoActionBar"></activity>
+        <activity
             android:name=".WebSiteActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_web_site"
-            android:theme="@style/Theme.EPINOTES.Fullscreen"></activity>
+            android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity android:name=".EpinotesAccueilActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

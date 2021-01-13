@@ -40,7 +40,8 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var login: String
     lateinit var edt_id: String
     lateinit var name: String
-    lateinit var url_activity : String
+    var url_activity = "https://toulouse.epita.fr/plannings/toulouse/9a05d9d2264bff818afca506c7fb8ec0.php"
+
     lateinit var url : String
     lateinit var answer : String
     private  val verification_code = "djhfbezqilbfiuyezbf15q16qreqerg54bj654kuyl654iuys65v1q6fv5atr651grtb65ytrdgn1dsf6h5dhj4ds6b4dn4bds1s681";
@@ -62,6 +63,8 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         emploi_du_temps_button = findViewById(R.id.emploiDuTemps_button) as Button
         parametres_button = findViewById(R.id.parametres_button) as Button
 
+
+
         requestToDo("thomas.peugnet@epita.fr", "login")
 
         //  Mail verification;  if mail is in the admin array -> redirection to EpinotesAccueilADMINActvitiy
@@ -75,10 +78,13 @@ class EpinotesAccueilActivity : AppCompatActivity() {
 
 
         emploi_du_temps_button.setOnClickListener {
-            url_activity = "https://toulouse.epita.fr/plannings/toulouse/9a05d9d2264bff818afca506c7fb8ec0.php"
             val intent_emploi_du_temps : Intent =  Intent(this,WebSiteActivity::class.java)
             startActivity(intent_emploi_du_temps)
+        }
 
+        suggestion_button.setOnClickListener {
+            val intent_suggestion : Intent =  Intent(this,SuggestionActivity::class.java)
+            startActivity(intent_suggestion)
         }
 
     }
