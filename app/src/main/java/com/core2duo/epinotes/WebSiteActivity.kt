@@ -21,10 +21,7 @@ class WebSiteActivity : AppCompatActivity() {
         webView.loadUrl(url_activity)
     }
     override fun onBackPressed() {
-        if (webView!!.canGoBack()) {
-            webView.goBack()
-        } else {
-            super.onBackPressed()
-        }
+        super.onBackPressed()
+
     }
 }
