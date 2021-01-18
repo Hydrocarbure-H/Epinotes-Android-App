@@ -30,26 +30,31 @@ public class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        connexion_button = findViewById(R.id.connexion_button)
+        epinotes_access_button = findViewById(R.id.epinotes_access_button)
+
 
         PublicClientApplication.createSingleAccountPublicClientApplication(
                 this as Context,
                 R.raw.auth_config_single_account,
                 object : IPublicClientApplication.ISingleAccountApplicationCreatedListener {
                     override fun onCreated(application: ISingleAccountPublicClientApplication) {
-
                         mSingleAccountApp = application
-
                         loadAccount()
                     }
-
                     override fun onError(exception: MsalException) {
-//                    txt_log.text = exception.toString()
                     }
                 })
+
+        /*
+        * Chargement du mail enregistré dans les préférences.
+        * Si l'utilisateur n'est pas connecté, le mail est à not_connected.
+        * Si l'utilisateur est connecté, mail contient l'adresse mail.
+        */
+
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val mail = preferences.getString("user_mail", "not_connected")
 
@@ -58,35 +63,33 @@ public class MainActivity : AppCompatActivity() {
             is_connected = true
         }
 
+        /*
+        * Ouverture de l'activité de connexion.
+        * Vérification que l'utilisateur ne s'est pas déjà connecté.
+        */
 
-
-        connexion_button = findViewById(R.id.connexion_button)
         connexion_button.setOnClickListener {
-
 
             if (mail == "not_connected")
             {
                 mSingleAccountApp!!.signIn(this as Activity, "", arrayOf("user.read"), getAuthInteractiveCallback())
-
             }
             else
             {
                 Toast.makeText(applicationContext,"Vous êtes déjà connecté !",Toast.LENGTH_LONG).show()
             }
-
-
-
-
         }
 
-        epinotes_access_button = findViewById(R.id.epinotes_access_button)
-        val intent_epinotes_access : Intent =  Intent(this, EpinotesAccueilActivity::class.java)
-
+        /*
+        * Ouverture de l'activité Accueil Epinotes.
+        * Vérification que l'utilisateur est déjà connecté.
+        */
 
         epinotes_access_button.setOnClickListener {
 
             if (is_connected)
             {
+                val intent_epinotes_access : Intent =  Intent(this, EpinotesAccueilActivity::class.java)
                 startActivity(intent_epinotes_access)
             }
             else
@@ -105,21 +108,13 @@ public class MainActivity : AppCompatActivity() {
         return object : AuthenticationCallback {
 
             override fun onSuccess(authenticationResult: IAuthenticationResult) {
-                /* Successfully got a token, use it to call a protected resource - MSGraph */
-//                Log.d(TAG, "Successfully authenticated")
-//                Log.d(TAG, "ID Token: " + authenticationResult.account.claims!!["id_token"])
 
-                /* Update account */
                 connexion_button.isEnabled = true
 
-                /* call graph */
                 callGraphAPI(authenticationResult)
             }
 
             override fun onError(exception: MsalException) {
-                /* Failed to acquireToken */
-//                Log.d(TAG, "Authentication failed: $exception")
-//                displayError(exception)
 
                 if (exception is MsalClientException) {
                     /* Exception inside MSAL, more info inside MsalError.java */
@@ -130,7 +125,6 @@ public class MainActivity : AppCompatActivity() {
 
             override fun onCancel() {
                 /* User canceled the authentication */
-//                Log.d(TAG, "User cancelled login.")
             }
         }
     }
@@ -139,16 +133,13 @@ public class MainActivity : AppCompatActivity() {
         MSGraphRequestWrapper.callGraphAPIWithVolley(
                 this as Context,
                 "https://graph.microsoft.com/v1.0/me",
-//            msgraph_url.text.toString(),
                 authenticationResult.accessToken,
                 { response ->
-                    /* Successfully called graph, process data and send to UI */
-//                Log.d(TAG, "Response: $response")
+
                     convertGraphResult(response)
                 },
                 { error ->
-//                Log.d(TAG, "Error: $error")"J'ai appuye sur le bouton."
-//                displayError(error)
+
                 })
 
     }
@@ -165,11 +156,9 @@ public class MainActivity : AppCompatActivity() {
 
             override fun onAccountChanged(priorAccount: IAccount?, currentAccount: IAccount?) {
                 if (currentAccount == null) {
-                    // Perform a cleanup task as the signed-in account changed.
                     performOperationOnSignOut()
                 }
             }
-
             override fun onError(exception: MsalException) {
 //                txt_log.text = exception.toString()
             }
@@ -177,10 +166,14 @@ public class MainActivity : AppCompatActivity() {
     }
 
     private fun convertGraphResult(graphResponse: JSONObject) {
-        println("Recuperation du JSON")
-        // Rendre le JSON accessible
         data_response = graphResponse
-        // Sauvegarde du mail dans les paramètres de l'application
+
+
+        /*
+        * Récupération du mail provenant du JSON réponse de Microsoft.
+        * Enregistrement du mail dans les paramètres de l'application.
+        * Changement de is_connected. L'utilisateur peut désormais se connecter.
+        */
 
         var mail = data_response.getString("mail")
 
@@ -192,34 +185,21 @@ public class MainActivity : AppCompatActivity() {
             editor.putString("user_mail", mail)
             editor.commit()
             is_connected = true
-
         }
         else
         {
             Toast.makeText(applicationContext,"Erreur : Connexion EPITA impossible... Impossible de récupérer vos données.",Toast.LENGTH_LONG).show()
         }
 
-
-
-
-
     }
 
     private fun updateUI(account: IAccount?) {
 
         if (account != null) {
-//            btn_signIn.isEnabled = false
-//            btn_removeAccount.isEnabled = true
-//            btn_callGraphInteractively.isEnabled = true
-//            btn_callGraphSilently.isEnabled = true
-//            current_user.text = account.username
+
             println("***************** UpdateUI")
         } else {
-//            btn_signIn.isEnabled = true
-//            btn_removeAccount.isEnabled = false
-//            btn_callGraphInteractively.isEnabled = false
-//            btn_callGraphSilently.isEnabled = false
-//            current_user.text = ""
+
             println("***************** UpdateUI")
         }
     }
@@ -230,16 +210,5 @@ public class MainActivity : AppCompatActivity() {
                 .show()
     }
 
-    /*private fun updateUI(connected : Boolean) {
 
-        if (connected != false) {
-            connexion_button.isEnabled = false
-            epinotes_access_button.isEnabled = true
-
-        } else {
-            connexion_button.isEnabled = true
-            epinotes_access_button.isEnabled = false
-
-        }
-    }*/
 }
