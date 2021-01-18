@@ -1,30 +1,32 @@
 package com.core2duo.epinotes
 
+/*import kotlinx.serialization.*
+import kotlinx.serialization.json.JSON*/
+
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.preference.PreferenceManager
 import android.widget.Button
 import android.widget.Toast
-import com.android.volley.Response
+import androidx.appcompat.app.AppCompatActivity
 import com.microsoft.identity.client.*
 import com.microsoft.identity.client.exception.MsalClientException
 import com.microsoft.identity.client.exception.MsalException
 import com.microsoft.identity.client.exception.MsalServiceException
-import com.microsoft.identity.client.exception.MsalUiRequiredException
-/*import kotlinx.serialization.*
-import kotlinx.serialization.json.JSON*/
 import org.json.JSONObject
+
+
 
 public class MainActivity : AppCompatActivity() {
     lateinit var connexion_button : Button
     lateinit var epinotes_access_button : Button
     lateinit var data_response : JSONObject
 
-    var mSingleAccountApp: ISingleAccountPublicClientApplication? = null
 
+    var mSingleAccountApp: ISingleAccountPublicClientApplication? = null
+    var is_connected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -38,11 +40,7 @@ public class MainActivity : AppCompatActivity() {
                 R.raw.auth_config_single_account,
                 object : IPublicClientApplication.ISingleAccountApplicationCreatedListener {
                     override fun onCreated(application: ISingleAccountPublicClientApplication) {
-                        /**
-                         * This test app assumes that the app is only going to support one account.
-                         * This requires "account_mode" : "SINGLE" in the config json file.
-                         *
-                         */
+
                         mSingleAccountApp = application
 
                         loadAccount()
@@ -52,21 +50,50 @@ public class MainActivity : AppCompatActivity() {
 //                    txt_log.text = exception.toString()
                     }
                 })
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val mail = preferences.getString("user_mail", "not_connected")
+
+        if (mail != "not_connected")
+        {
+            is_connected = true
+        }
+
+
 
         connexion_button = findViewById(R.id.connexion_button)
         connexion_button.setOnClickListener {
 
-           mSingleAccountApp!!.signIn(this as Activity, "", arrayOf("user.read"), getAuthInteractiveCallback())
+
+            if (mail == "not_connected")
+            {
+                mSingleAccountApp!!.signIn(this as Activity, "", arrayOf("user.read"), getAuthInteractiveCallback())
+
+            }
+            else
+            {
+                Toast.makeText(applicationContext,"Vous êtes déjà connecté !",Toast.LENGTH_LONG).show()
+            }
+
 
 
 
         }
 
         epinotes_access_button = findViewById(R.id.epinotes_access_button)
-        val intent_epinotes_access : Intent =  Intent(this,EpinotesAccueilActivity::class.java)
+        val intent_epinotes_access : Intent =  Intent(this, EpinotesAccueilActivity::class.java)
+
+
         epinotes_access_button.setOnClickListener {
 
-           startActivity(intent_epinotes_access)
+            if (is_connected)
+            {
+                startActivity(intent_epinotes_access)
+            }
+            else
+            {
+                Toast.makeText(applicationContext,"Vous n'êtes pas encore connecté !",Toast.LENGTH_LONG).show()
+            }
+
 
         }
 
@@ -153,8 +180,28 @@ public class MainActivity : AppCompatActivity() {
         println("Recuperation du JSON")
         // Rendre le JSON accessible
         data_response = graphResponse
-        // Prepaprer le JSON a etre ecrit dans un fichier texte
-        //var data_respons_stringe = graphResponse.toString()
+        // Sauvegarde du mail dans les paramètres de l'application
+
+        var mail = data_response.getString("mail")
+
+        if (mail != null)
+        {
+            Toast.makeText(applicationContext,"Connexion EPITA établie !",Toast.LENGTH_SHORT).show()
+            val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+            val editor = preferences.edit()
+            editor.putString("user_mail", mail)
+            editor.commit()
+            is_connected = true
+
+        }
+        else
+        {
+            Toast.makeText(applicationContext,"Erreur : Connexion EPITA impossible... Impossible de récupérer vos données.",Toast.LENGTH_LONG).show()
+        }
+
+
+
+
 
     }
 

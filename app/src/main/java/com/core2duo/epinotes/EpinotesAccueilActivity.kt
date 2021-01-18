@@ -1,29 +1,20 @@
 package com.core2duo.epinotes
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.StrictMode
+import android.preference.PreferenceManager
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.nimbusds.jose.Header.parse
+import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.JsonObject
 import com.squareup.picasso.Picasso
+import net.minidev.json.parser.JSONParser
+import org.json.JSONArray
 import org.json.JSONObject
-import java.net.HttpURLConnection
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.net.URL
-import java.nio.ByteBuffer
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
-
 
 
 class EpinotesAccueilActivity : AppCompatActivity() {
@@ -36,6 +27,10 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var epimessages_button : Button
     lateinit var emploi_du_temps_button : Button
     lateinit var parametres_button : Button
+    lateinit var json_response : JsonObject
+    var response_request = ""
+    lateinit var answer : String
+
 
     lateinit var mail_address: String
     lateinit var login: String
@@ -44,13 +39,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     var url_activity = "https://toulouse.epita.fr/plannings/toulouse/9a05d9d2264bff818afca506c7fb8ec0.php"
 
     lateinit var url : String
-    lateinit var answer : String
     private  val verification_code = "djhfbezqilbfiuyezbf15q16qreqerg54bj654kuyl654iuys65v1q6fv5atr651grtb65ytrdgn1dsf6h5dhj4ds6b4dn4bds1s681";
-
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,68 +55,101 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         parametres_button = findViewById(R.id.parametres_button) as Button
 
 
-
-        requestToDo("thomas.peugnet@epita.fr", "login")
-
-        //  Mail verification;  if mail is in the admin array -> redirection to EpinotesAccueilADMINActvitiy
-        //  mail_address = MainActivity().data_response.getString("mail")
-        //  login = MainActivity().data_response.getString("login")
-        //  name = MainActivity().data_response.getString("name")
-        // edt_id = TROUVER COMMENT RECUPERE CETTE PARTIE. REQUET DB
-
-        // Changement image de profil CRI
-        Picasso.get().load("https://photos.cri.epita.fr/thomas.peugnet").into(login_imgView);
-
-
         emploi_du_temps_button.setOnClickListener {
-            val intent_emploi_du_temps : Intent =  Intent(this,WebSiteActivity::class.java)
+            val intent_emploi_du_temps: Intent = Intent(this, WebSiteActivity::class.java)
             startActivity(intent_emploi_du_temps)
         }
         suggestion_button.setOnClickListener {
-            val intent_suggestion : Intent =  Intent(this,SuggestionActivity::class.java)
+            val intent_suggestion: Intent = Intent(this, SuggestionActivity::class.java)
             startActivity(intent_suggestion)
         }
         annales_et_fiches_button.setOnClickListener {
-            val intent_annales : Intent =  Intent(this,AnnalesEtFichesActivity::class.java)
+            val intent_annales: Intent = Intent(this, AnnalesEtFichesActivity::class.java)
             startActivity(intent_annales)
         }
         cours_du_jour_button.setOnClickListener {
-            val intent_cours : Intent =  Intent(this,CoursDuJourActivity::class.java)
+            val intent_cours: Intent = Intent(this, CoursDuJourActivity::class.java)
             startActivity(intent_cours)
         }
         examens_button.setOnClickListener {
-            val intent_examens : Intent =  Intent(this,ExamensActivity::class.java)
+            val intent_examens: Intent = Intent(this, ExamensActivity::class.java)
             startActivity(intent_examens)
         }
         upload_cours_button.setOnClickListener {
-            val intent_upload : Intent =  Intent(this,UploadActivity::class.java)
+            val intent_upload: Intent = Intent(this, UploadActivity::class.java)
             startActivity(intent_upload)
         }
-
         parametres_button.setOnClickListener {
-            val intent_parametres : Intent =  Intent(this,ParametresActivity::class.java)
+            val intent_parametres: Intent = Intent(this, ParametresActivity::class.java)
             startActivity(intent_parametres)
         }
+// Chargement du mail
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val mail = preferences.getString("user_mail", "not_connected")
+// Requêtes au serveur
+        val policy = StrictMode.ThreadPolicy.Builder().permitNetwork().build()
+        StrictMode.setThreadPolicy(policy)
+        var name = request(mail, "name")
+        var login = request(mail, "login")
+        var promo = request(mail, "promo")
+        var campus = request(mail, "campus")
+        var id_calendar = request(mail, "id_calendar")
+
+
+
+        Picasso.get().load("https://photos.cri.epita.fr/"+login).into(login_imgView);
 
     }
 
 
 
-    fun requestToDo( mail_address : String, request : String)
-    {//Do the request to the server
-        val queue = Volley.newRequestQueue(this)
+    fun request(mail_address: String?, request: String): String {
+        try {
+            url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request
+            val memeURL = URL(url)
+            val bufferedReader = BufferedReader(InputStreamReader(memeURL.openConnection().getInputStream()))
+            var lines: String?
+            val response = StringBuffer()
+            while (bufferedReader.readLine().also { lines = it } != null) {
+                response.append(lines)
+            }
+            return response.toString()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
+    }
 
-        url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request
 
-        var stringRequest = StringRequest(Request.Method.GET, url,
-                Response.Listener{ response ->
-                    answer = response
-                },
-                {
-                    fun Context.toast(message: CharSequence) =
-                            Toast.makeText(this, "Erreur : Impossible d'effectuer la requete.", Toast.LENGTH_SHORT).show()
-                })
-        queue.add(stringRequest)
+
+    fun meme2(mail_address: String, request: String): String {
+        try {
+            url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request
+            val memeURL = URL(url)
+            val bufferedReader = BufferedReader(InputStreamReader(memeURL.openConnection().getInputStream()))
+            var lines: String?
+            val response = StringBuffer()
+
+            val parser = JSONParser()
+            while (bufferedReader.readLine().also { lines = it } != null) {
+                response.append(lines)
+                val list = JSONArray()
+                list.put(parser.parse(lines))
+                for (i in 0 until list.length()) {
+                    val jsonObject: JSONObject = i as JSONObject
+                    var auteur = jsonObject.get("auteur")
+                    var contenu = jsonObject.get("contenu")
+                    println(auteur)
+                    println(contenu)
+
+                }
+
+            }
+            return response.toString()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
 

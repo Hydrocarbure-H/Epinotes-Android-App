@@ -27,7 +27,10 @@
                     android:layout_height="60dp"
                     android:src="@drawable/default_login"
                     android:layout_alignParentEnd="true"
-                    android:contentDescription="Login_Picture" />
+                    android:contentDescription="Login_Picture"
+                    />
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
