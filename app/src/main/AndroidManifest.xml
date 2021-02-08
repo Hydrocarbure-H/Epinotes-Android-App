@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.core2duo.epinotes">
+    package="com.core2duofr.epinotes">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -9,24 +14,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPINOTES">
-        <activity android:name=".ExamensActivity"></activity>
-        <activity android:name=".EpimessagesActivity" />
-        <activity android:name=".ParametresActivity" />
-        <activity android:name=".ExemensActivity" />
-        <activity android:name=".UploadActivity" />
-        <activity android:name=".CoursDuJourActivity" />
-        <activity android:name=".AnnalesEtFichesActivity" />
+        <activity android:name="com.core2duofr.epinotes.NotesActivity"
+            android:label="Mes notes"
+            android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name=".SuggestionActivity"
+            android:name="com.core2duofr.epinotes.ExamensActivity"
+            android:theme="@style/Theme.EPINOTES.NoActionBar" />
+        <activity
+            android:name="com.core2duofr.epinotes.EpimessagesActivity"
+            android:theme="@style/Theme.EPINOTES.NoActionBar" />
+        <activity
+            android:name="com.core2duofr.epinotes.ParametresActivity"
+            android:theme="@style/Theme.EPINOTES.NoActionBar" />
+        <activity
+            android:name="com.core2duofr.epinotes.UploadActivity"
+            android:label="Uploader un cours"
+            android:theme="@style/Theme.EPINOTES.Fullscreen" />
+        <activity
+            android:name="com.core2duofr.epinotes.CoursDuJourActivity"
+            android:label="Cours du jour"
+            android:theme="@style/Theme.EPINOTES.Fullscreen" />
+        <activity
+            android:name="com.core2duofr.epinotes.AnnalesEtFichesActivity"
+            android:label="Annales et fiches"
+            android:theme="@style/Theme.EPINOTES.Fullscreen" />
+        <activity
+            android:name="com.core2duofr.epinotes.SuggestionActivity"
             android:label="@string/title_activity_suggestion"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name=".WebSiteActivity"
+            android:name="com.core2duofr.epinotes.WebSiteActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_web_site"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
-        <activity android:name=".EpinotesAccueilActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name="com.core2duofr.epinotes.EpinotesAccueilActivity"
+            android:theme="@style/Theme.EPINOTES.NoActionBar" />
+        <activity
+            android:name="com.core2duofr.epinotes.MainActivity"
+            android:theme="@style/Theme.EPINOTES.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

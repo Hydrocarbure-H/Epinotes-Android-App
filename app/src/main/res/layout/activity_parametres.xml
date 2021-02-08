@@ -26,9 +26,8 @@
                 android:id="@+id/login_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/default_login"
-                android:layout_alignParentEnd="true"
-                android:contentDescription="Login_Picture" />
+                android:src="@drawable/parametre"
+                android:layout_alignParentEnd="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,6 +38,8 @@
                 android:text="Paramètres"
                 android:textSize="50sp" />
         </RelativeLayout>
+
+        
 
 
     </LinearLayout>

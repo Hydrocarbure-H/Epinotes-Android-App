@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EpimessagesActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color"
+    android:color="#FFF"
+    android:padding="10dp"
+    android:fontFamily="@font/font1"
+    android:fillViewport="false"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:padding="10dp"
+
+    android:background="@drawable/background_roundcorners">
+
+    <ImageView
+        android:id="@+id/login_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/epimessage1"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="epimessages_logo"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/font1"
+        android:text="EpiMessages"
+        android:textSize="50sp"
+        />
+</RelativeLayout>
+    <LinearLayout
+        android:fontFamily="@font/font1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/epimessage_body"
+            android:maxLength="1000"
+            android:lines="3"
+            android:text="Votre message..."
+            />
+
+        <Button
+            android:id="@+id/epimessage_refresh_button"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:text="Actualiser"
+            />
+
+        <Button
+            android:id="@+id/epimessage_send_button"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:focusable="true"
+            android:text="Envoyer"
+            />
+    </LinearLayout>
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:fontFamily="@font/font1"
+        android:id = "@+id/linear_layout"
+        >
+    </LinearLayout>
+</ScrollView>
+
+
+
+</LinearLayout>
+
+
+

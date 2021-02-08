@@ -13,6 +13,7 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/font1"
         >
 
         <RelativeLayout
@@ -23,10 +24,10 @@
             android:background="@drawable/background_roundcorners">
 
             <ImageView
-                android:id="@+id/login_img"
+                android:id="@+id/exmas_logo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/default_login"
+                android:src="@drawable/exams"
                 android:layout_alignParentEnd="true"
                 android:contentDescription="Login_Picture" />
 
@@ -44,20 +45,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font1"
             android:text="QCM"
             android:textSize="50sp"
             android:layout_gravity="center"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Algo"
+            android:text=" Algo"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/algo_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -68,16 +72,18 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/background_roundcorners"
             />
+
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text=" - Maths"
-            android:textSize="40sp"
             android:layout_marginTop="20dp"
-            />
+            android:fontFamily="@font/font1"
+            android:text=" Maths"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/maths_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -89,15 +95,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Physique"
+            android:text=" Physique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/physique_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -109,15 +117,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Electronique"
+            android:text=" Electronique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/electronique_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -130,15 +140,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - A. des O."
+            android:text=" A. des O."
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/archi_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -151,15 +163,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Anglais"
+            android:text=" Anglais"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/anglais_qcm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -174,6 +188,7 @@
         <!-- MIDTERMS -->
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Midterms"
@@ -183,15 +198,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Algo"
+            android:text=" Algo"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/algo_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -203,15 +220,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Maths"
+            android:text=" Maths"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/maths_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -223,15 +242,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Physique"
+            android:text=" Physique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/physique_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -243,15 +264,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Electronique"
+            android:text=" Electronique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/electronique_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -264,15 +287,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - A. des O."
+            android:text=" A. des O."
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/archi_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -285,15 +310,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Anglais"
+            android:text=" Anglais"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/anglais_midterm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -308,6 +335,7 @@
 
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Partiels"
@@ -316,15 +344,17 @@
             android:layout_gravity="center"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Algo"
+            android:text=" Algo"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/algo_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -336,15 +366,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Maths"
+            android:text=" Maths"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/maths_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -356,15 +388,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Physique"
+            android:text=" Physique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/physique_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -376,15 +410,17 @@
             android:background="@drawable/background_roundcorners"
             />
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Electronique"
+            android:text=" Electronique"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/electronique_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -397,15 +433,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - A. des O."
+            android:text=" A. des O."
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/archi_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -418,15 +456,17 @@
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" - Anglais"
+            android:text=" Anglais"
             android:textSize="40sp"
             android:layout_marginTop="20dp"
             />
 
         <TextView
+            android:fontFamily="@font/font1"
             android:id="@+id/anglais_partiel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
