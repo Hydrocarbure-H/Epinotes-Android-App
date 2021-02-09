@@ -14,44 +14,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPINOTES">
-        <activity android:name="com.core2duofr.epinotes.NotesActivity"
+        <activity android:name=".EpinotesAuthenticationActivity">
+
+        </activity>
+        <activity
+            android:name=".NotesActivity"
             android:label="Mes notes"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name="com.core2duofr.epinotes.ExamensActivity"
+            android:name=".ExamensActivity"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name="com.core2duofr.epinotes.EpimessagesActivity"
+            android:name=".EpimessagesActivity"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name="com.core2duofr.epinotes.ParametresActivity"
+            android:name=".ParametresActivity"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name="com.core2duofr.epinotes.UploadActivity"
+            android:name=".UploadActivity"
             android:label="Uploader un cours"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name="com.core2duofr.epinotes.CoursDuJourActivity"
+            android:name=".CoursDuJourActivity"
             android:label="Cours du jour"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name="com.core2duofr.epinotes.AnnalesEtFichesActivity"
+            android:name=".AnnalesEtFichesActivity"
             android:label="Annales et fiches"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name="com.core2duofr.epinotes.SuggestionActivity"
+            android:name=".SuggestionActivity"
             android:label="@string/title_activity_suggestion"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name="com.core2duofr.epinotes.WebSiteActivity"
+            android:name=".WebSiteActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_web_site"
             android:theme="@style/Theme.EPINOTES.Fullscreen" />
         <activity
-            android:name="com.core2duofr.epinotes.EpinotesAccueilActivity"
+            android:name=".EpinotesAccueilActivity"
             android:theme="@style/Theme.EPINOTES.NoActionBar" />
         <activity
-            android:name="com.core2duofr.epinotes.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/Theme.EPINOTES.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -85,9 +85,9 @@ class EpinotesAccueilActivity : AppCompatActivity() {
             startActivity(intent_upload)
         }
         notes_button.setOnClickListener {
-//            val intent_notes: Intent = Intent(this, NotesActivity::class.java)
-//            startActivity(intent_notes)
-            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
+            val intent_notes: Intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent_notes)
+            Toast.makeText(applicationContext,"Version BETA : En cours de développement.", Toast.LENGTH_LONG).show()
 
         }
         parametres_button.setOnClickListener {
