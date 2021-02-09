@@ -44,7 +44,7 @@
             android:maxLength="14"
             android:inputType="text"
             android:id="@+id/token_client"
-            android:text="ici..."
+            android:text="EpinotesID"
             />
 
         <Button
@@ -64,7 +64,7 @@
             android:paddingBottom="10dp"
             android:layout_margin="100dp"
             android:focusable="true"
-            android:text="Connexion" />
+            android:text="Identification" />
 
         <TextView
             android:layout_width="wrap_content"
