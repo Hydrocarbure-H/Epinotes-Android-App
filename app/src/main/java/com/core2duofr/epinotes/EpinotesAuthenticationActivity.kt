@@ -45,7 +45,7 @@ class EpinotesAuthenticationActivity : AppCompatActivity() {
             if (email == "token_invalid")
             {
                 Toast.makeText(applicationContext, "Erreur : Connexion EPINOTES impossible... Impossible de récupérer vos données.", Toast.LENGTH_LONG).show()
-                token_response.text = "Vous avez deux options : \n - Votre identifiant est incorrect\n - Vous ne vous êtes pas encore inscrits sur le site.\n\nPour rappel : Vous devez obligatoirement vous inscrire sur le site avant d'utiliser l'application."
+                token_response.text = "Vous avez deux options : \n - Votre identifiant EpinotesID est incorrect\n - Vous ne vous êtes pas encore inscrits sur le site.\n\nPour rappel : Vous devez obligatoirement vous inscrire sur le site avant d'utiliser l'application."
             }
             else
             {

@@ -50,7 +50,7 @@
             android:id="@+id/epimessage_body"
             android:maxLength="1000"
             android:lines="3"
-            android:text="Votre message..."
+            android:hint="Votre message..."
             />
 
         <Button

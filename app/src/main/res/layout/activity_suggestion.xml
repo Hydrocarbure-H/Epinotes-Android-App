@@ -46,7 +46,7 @@
             android:maxLines="10"
             android:inputType="text"
             android:id="@+id/suggestion_title"
-            android:text="Titre"
+            android:hint="Titre"
             />
 
         <EditText
@@ -56,7 +56,7 @@
             android:maxLines="10"
             android:id="@+id/suggestion_corps"
             android:inputType="textMultiLine"
-            android:text="Décrivez votre idée ici..."
+            android:hint="Décrivez votre super idée ici..."
             />
         <Button
             android:id="@+id/suggestion_send_button"
