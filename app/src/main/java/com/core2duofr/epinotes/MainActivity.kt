@@ -28,6 +28,7 @@ import kotlin.system.exitProcess
 
 public class MainActivity : AppCompatActivity() {
     lateinit var connexion_button: Button
+    lateinit var wiki_button: Button
     private  val verification_code = "djhfbezqilbfiuyezbf15q16qreqerg54bj654kuyl654iuys65v1q6fv5atr651grtb65ytrdgn1dsf6h5dhj4ds6b4dn4bds1s681";
     lateinit var url : String
 
@@ -43,7 +44,7 @@ public class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         connexion_button = findViewById(R.id.connexion_button)
-
+        wiki_button = findViewById(R.id.wiki_button)
         connectivity = context.getSystemService(Service.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (connectivity != null) {
@@ -90,6 +91,12 @@ public class MainActivity : AppCompatActivity() {
                 val intent_epinotes_access: Intent = Intent(this, EpinotesAccueilActivity::class.java)
                 startActivity(intent_epinotes_access)
             }
+        }
+
+        wiki_button.setOnClickListener {
+            val intent_wiki: Intent = Intent(this, WikiActivity::class.java)
+            startActivity(intent_wiki)
+
         }
     }
 }

@@ -71,6 +71,27 @@
             android:layout_centerInParent="true"
             android:text="Connexion " />
 
+        <Button
+
+            android:id="@+id/wiki_button"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:focusable="true"
+            android:layout_centerInParent="true"
+            android:text="Epinotes, qu'est-ce que c'est ? " />
+
 
     </LinearLayout>
 

@@ -25,7 +25,11 @@ class EpinotesAccueilActivity : AppCompatActivity() {
     lateinit var epimessages_button : Button
     lateinit var emploi_du_temps_button : Button
     lateinit var notes_button : Button
+    lateinit var pegasus_button : Button
+    lateinit var moodle_button : Button
+    lateinit var ionis_button : Button
     lateinit var parametres_button : Button
+    lateinit var drivetoulouse_button : Button
     lateinit var json_response : JSONObject
     lateinit var answer : String
 
@@ -51,6 +55,10 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         epimessages_button = findViewById(R.id.epimessages_button) as Button
         emploi_du_temps_button = findViewById(R.id.emploiDuTemps_button) as Button
         notes_button = findViewById(R.id.notes_button) as Button
+        pegasus_button = findViewById(R.id.pegasus_button) as Button
+        ionis_button = findViewById(R.id.ionis_button) as Button
+        moodle_button = findViewById(R.id.moodle_button) as Button
+        drivetoulouse_button = findViewById(R.id.drivetoulouse_button) as Button
         parametres_button = findViewById(R.id.parametres_button) as Button
 
 
@@ -81,8 +89,9 @@ class EpinotesAccueilActivity : AppCompatActivity() {
             startActivity(intent_epimessage)
         }
         upload_cours_button.setOnClickListener {
-            val intent_upload: Intent = Intent(this, UploadActivity::class.java)
-            startActivity(intent_upload)
+//            val intent_upload: Intent = Intent(this, UploadActivity::class.java)
+//            startActivity(intent_upload)
+            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
         }
         notes_button.setOnClickListener {
             val intent_notes: Intent = Intent(this, NotesActivity::class.java)
@@ -90,11 +99,27 @@ class EpinotesAccueilActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"Version BETA : En cours de développement.", Toast.LENGTH_LONG).show()
 
         }
+        pegasus_button.setOnClickListener {
+            val intent_pegasus: Intent = Intent(this, PegasusActivity::class.java)
+            startActivity(intent_pegasus)
+        }
+        moodle_button.setOnClickListener {
+            val intent_moodle: Intent = Intent(this, MoodleActivity::class.java)
+            startActivity(intent_moodle)
+            Toast.makeText(applicationContext,"(BETA) : Une seule connexion est nécessaire. La session est conservée en cache.", Toast.LENGTH_LONG).show()
+        }
+        ionis_button.setOnClickListener {
+            val intent_ionis: Intent = Intent(this, IonisActivity::class.java)
+            startActivity(intent_ionis)
+        }
+        drivetoulouse_button.setOnClickListener {
+            val intent_drivetoulouse: Intent = Intent(this, DriveToulouseActivity::class.java)
+            startActivity(intent_drivetoulouse)
+        }
         parametres_button.setOnClickListener {
-//            val intent_parametres: Intent = Intent(this, ParametresActivity::class.java)
-//            startActivity(intent_parametres)
-            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
-
+            val intent_parametres: Intent = Intent(this, ParametresActivity::class.java)
+            startActivity(intent_parametres)
+//            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
         }
 // Chargement du mail
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)

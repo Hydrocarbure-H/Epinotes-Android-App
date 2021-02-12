@@ -142,6 +142,66 @@
             android:text="Mon emploi du temps" />
 
         <Button
+            android:id="@+id/pegasus_button"
+            android:drawableEnd="@drawable/epinotes_pegasus_logo_1"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/font1"
+            android:textStyle="bold"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:focusable="true"
+            android:text="Pegasus" />
+
+        <Button
+            android:id="@+id/ionis_button"
+            android:drawableEnd="@drawable/epinotes_ionis_logo_1"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/font1"
+            android:textStyle="bold"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:focusable="true"
+            android:text="ionis" />
+
+        <Button
+            android:id="@+id/moodle_button"
+            android:drawableEnd="@drawable/epinotes_moodle_logo_1"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/font1"
+            android:textStyle="bold"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:focusable="true"
+            android:text="Moodle" />
+
+        <Button
             android:id="@+id/suggestion_button"
             android:drawableEnd="@drawable/suggestion_btn_50px"
             android:layout_gravity="center"
@@ -180,6 +240,26 @@
             android:layout_margin="10dp"
             android:focusable="true"
             android:text="EpiMessages" />
+
+        <Button
+            android:id="@+id/drivetoulouse_button"
+            android:drawableEnd="@drawable/epinotes_google_drive_logo"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:focusable="true"
+            android:text="Drive Toulouse" />
 
         <Button
             android:id="@+id/uploadCours_button"

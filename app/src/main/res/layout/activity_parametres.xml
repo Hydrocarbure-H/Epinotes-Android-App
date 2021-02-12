@@ -39,7 +39,145 @@
                 android:textSize="50sp" />
         </RelativeLayout>
 
-        
+        <RadioGroup
+            android:id="@+id/webview_theme_radio_group_epitashare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quel thème préférez-vous pour EPITA-SHARE ?"
+                android:fontFamily="@font/font1"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/epitashare_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="DARK"/>
+
+            <RadioButton
+                android:id="@+id/epitashare_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="LIGHT"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/webview_theme_radio_group_ionis"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/font1"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quel thème préférez-vous pour IONISX ?"
+                android:fontFamily="@font/font1"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/ionis_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="DARK"/>
+
+            <RadioButton
+                android:id="@+id/ionis_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="LIGHT"/>
+
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/webview_theme_radio_group_moodle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font1"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="Quel thème préférez-vous pour MOODLE ?"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/moodle_dark"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/font1"
+                android:layout_height="wrap_content"
+                android:text="DARK"/>
+
+            <RadioButton
+                android:id="@+id/moodle_light"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/font1"
+                android:layout_height="wrap_content"
+                android:text="LIGHT"/>
+
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/webview_theme_radio_group_pegasus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quel thème préférez-vous pour PEGASUS ?"
+                android:fontFamily="@font/font1"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:id="@+id/pegasus_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:text="DARK"/>
+
+            <RadioButton
+                android:id="@+id/pegasus_light"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/font1"
+                android:layout_height="wrap_content"
+                android:text="LIGHT"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/webview_theme_button"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:shadowColor="#FF000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/accueil_buttons_background"
+            android:paddingEnd="40dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="30dp"
+            android:focusable="true"
+            android:text="Sauvegarder" />
+
 
 
     </LinearLayout>
