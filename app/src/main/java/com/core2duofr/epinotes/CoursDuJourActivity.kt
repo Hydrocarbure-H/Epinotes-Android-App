@@ -71,8 +71,6 @@ class CoursDuJourActivity : AppCompatActivity() {
         }
         webView.loadUrl(url_activity)
 
-        webView.loadUrl(url_activity)
-
         webView.setDownloadListener({ url, userAgent, contentDisposition, mimeType, contentLength ->
             val request = DownloadManager.Request(Uri.parse(url))
             request.setMimeType(mimeType)
