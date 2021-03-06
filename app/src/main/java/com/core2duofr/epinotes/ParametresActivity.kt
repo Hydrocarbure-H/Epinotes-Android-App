@@ -2,12 +2,10 @@ package com.core2duofr.epinotes
 
 import android.os.Bundle
 import android.os.Environment
+import android.os.StrictMode
 import android.preference.PreferenceManager
 import android.view.View
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
 import java.io.File
@@ -33,6 +31,7 @@ class ParametresActivity : AppCompatActivity() {
         params_theme_moodle_radio_group = findViewById(R.id.webview_theme_radio_group_moodle) as RadioGroup
         params_theme_ionis_radio_group = findViewById(R.id.webview_theme_radio_group_ionis) as RadioGroup
         params_theme_epitashare_radio_group = findViewById(R.id.webview_theme_radio_group_epitashare) as RadioGroup
+        var epinotes_id_TextView = findViewById(R.id.epinotes_id_tv) as TextView
 
         params_theme_button.setOnClickListener{
             // Get the checked radio button id from radio group
@@ -75,26 +74,20 @@ class ParametresActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Thèmes sauvegardés !", Toast.LENGTH_SHORT).show()
 
         }
+// Chargement du mail
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val mail = preferences.getString("user_mail", "not_connected")
+// Requêtes au serveur
+        val policy = StrictMode.ThreadPolicy.Builder().permitNetwork().build()
+        StrictMode.setThreadPolicy(policy)
+        var epinotes_id = request(mail, "epinotes_id")
+        epinotes_id_TextView.text = "Epinotes ID : " + epinotes_id.toString()
+
+
+
+
 
     }
-
-//    fun radio_button_click_pegasus(view: View){
-//        // Get the clicked radio button instance
-//        val radio: RadioButton = findViewById(params_theme_pegasus_radio_group.checkedRadioButtonId)
-//    }
-//    fun radio_button_click_moodle(view: View){
-//        // Get the clicked radio button instance
-//        val radio: RadioButton = findViewById(params_theme_moodle_radio_group.checkedRadioButtonId)
-//        Toast.makeText(applicationContext,"On click : ${radio.text}",
-//            Toast.LENGTH_SHORT).show()
-//    }
-//    fun radio_button_click_ionis(view: View){
-//        // Get the clicked radio button instance
-//        val radio: RadioButton = findViewById(params_theme_ionis_radio_group.checkedRadioButtonId)
-//        Toast.makeText(applicationContext,"On click : ${radio.text}",
-//            Toast.LENGTH_SHORT).show()
-//    }
-
     fun request(mail_address: String?, request: String): String {
         try {
             url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request

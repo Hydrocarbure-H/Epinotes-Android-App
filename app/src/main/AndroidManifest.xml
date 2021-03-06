@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPINOTES">
-        <activity android:name=".PdfViewerActivity"></activity>
+
+        <activity android:name=".PdfViewerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Moodle"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.EPINOTES.NoActionBar"/>
         <activity
             android:name=".WikiActivity"
             android:configChanges="orientation|keyboardHidden"

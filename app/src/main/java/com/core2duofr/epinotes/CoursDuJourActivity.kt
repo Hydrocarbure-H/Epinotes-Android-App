@@ -2,8 +2,8 @@ package com.core2duofr.epinotes
 
 import android.app.DownloadManager
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
@@ -13,11 +13,13 @@ import android.webkit.URLUtil
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
+
 
 class CoursDuJourActivity : AppCompatActivity() {
     val webView: WebView? = null
@@ -52,23 +54,7 @@ class CoursDuJourActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
 
-        // Chargement du theme
-        val theme = preferences.getString("web_view_theme_epitashare", "DARK")
 
-        if (theme == "DARK")
-        {
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
-            {
-                WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON)
-            }
-        }
-        if (theme == "LIGHT")
-        {
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
-            {
-                WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_OFF)
-            }
-        }
         webView.loadUrl(url_activity)
 
         webView.setDownloadListener({ url, userAgent, contentDisposition, mimeType, contentLength ->
@@ -80,11 +66,19 @@ class CoursDuJourActivity : AppCompatActivity() {
             request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType))
             request.allowScanningByMediaScanner()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            request.setDestinationInExternalFilesDir(this@CoursDuJourActivity, Environment.DIRECTORY_DOWNLOADS, ".png")
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, ".pdf")
             val dm = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             dm.enqueue(request)
             Toast.makeText(applicationContext, "Fichier téléchargé !", Toast.LENGTH_LONG).show()
+
+            // Envoyer l'url entière du fichier, pour pouvoir le charger directement depuis PdfViewerActivity
+
+            val filename = URLUtil.guessFileName(url, contentDisposition, mimeType)
+            val intent = Intent(this, PdfViewerActivity::class.java)
+            intent.putExtra("file_name_url", url)
+            startActivity(intent)
         })
+
     }
 
     override fun onBackPressed() {
@@ -97,7 +91,11 @@ class CoursDuJourActivity : AppCompatActivity() {
         try {
             url = "https://epinotes.core2duo.fr/connect_android.php?mail=" + mail_address + "&code_verification=" + verification_code + "&requete=" + request
             val memeURL = URL(url)
-            val bufferedReader = BufferedReader(InputStreamReader(memeURL.openConnection().getInputStream()))
+            val bufferedReader = BufferedReader(
+                    InputStreamReader(
+                            memeURL.openConnection().getInputStream()
+                    )
+            )
             var lines: String?
             val response = StringBuffer()
             while (bufferedReader.readLine().also { lines = it } != null) {

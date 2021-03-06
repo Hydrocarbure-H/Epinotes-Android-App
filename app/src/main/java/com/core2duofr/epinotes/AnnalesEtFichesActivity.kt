@@ -28,24 +28,7 @@ class AnnalesEtFichesActivity : AppCompatActivity() {
         val webView = findViewById<WebView>(R.id.webView)
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        // Chargement du theme
-        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val theme = preferences.getString("web_view_theme_epitashare", "DARK")
 
-        if (theme == "DARK")
-        {
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
-            {
-                WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON)
-            }
-        }
-        if (theme == "LIGHT")
-        {
-            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
-            {
-                WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_OFF)
-            }
-        }
         webView.loadUrl(url_activity)
 
         webView.setDownloadListener({ url, userAgent, contentDisposition, mimeType, contentLength ->

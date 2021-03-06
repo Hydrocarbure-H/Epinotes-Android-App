@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PdfViewerActivity">
-    <com.pdfview.PDFView
-        android:id="@+id/activityMainPdfView"
+    tools:context=".WebSiteActivity">
+
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+    </WebView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
