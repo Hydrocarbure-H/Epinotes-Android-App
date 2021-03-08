@@ -65,7 +65,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         emploi_du_temps_button.setOnClickListener {
 //            val intent_emploi_du_temps: Intent = Intent(this, WebSiteActivity::class.java)
 //            startActivity(intent_emploi_du_temps)
-            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"Pas encore disponible... Google Calendar n'est pas opérationnel...! :-)", Toast.LENGTH_LONG).show()
 
         }
         suggestion_button.setOnClickListener {
@@ -91,7 +91,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         upload_cours_button.setOnClickListener {
 //            val intent_upload: Intent = Intent(this, UploadActivity::class.java)
 //            startActivity(intent_upload)
-            Toast.makeText(applicationContext,"Pas encore disponible dans votre région. Ça le sera surement pour la prochaine mise à jour...! :-)", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"Pas encore disponible... On y travaille !!", Toast.LENGTH_LONG).show()
         }
         notes_button.setOnClickListener {
             val intent_notes: Intent = Intent(this, NotesActivity::class.java)
