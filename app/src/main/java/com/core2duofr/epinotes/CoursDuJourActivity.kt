@@ -62,17 +62,7 @@ class CoursDuJourActivity : AppCompatActivity() {
             request.setMimeType(mimeType)
             request.addRequestHeader("cookie", CookieManager.getInstance().getCookie(url))
             request.addRequestHeader("User-Agent", userAgent)
-            request.setDescription("Téléchargement...")
-            request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType))
-            request.allowScanningByMediaScanner()
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, ".pdf")
-            val dm = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-            dm.enqueue(request)
-            Toast.makeText(applicationContext, "Fichier téléchargé !", Toast.LENGTH_LONG).show()
-
             // Envoyer l'url entière du fichier, pour pouvoir le charger directement depuis PdfViewerActivity
-
             val filename = URLUtil.guessFileName(url, contentDisposition, mimeType)
             val intent = Intent(this, PdfViewerActivity::class.java)
             intent.putExtra("file_name_url", url)
