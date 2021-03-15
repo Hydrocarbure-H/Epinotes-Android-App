@@ -78,7 +78,7 @@
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
             android:focusable="true"
-            android:text="Mes cours" />
+            android:text="Cours / QCM" />
 
         <Button
 

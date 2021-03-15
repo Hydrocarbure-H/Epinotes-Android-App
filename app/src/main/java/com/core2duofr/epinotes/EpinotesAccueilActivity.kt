@@ -1,6 +1,7 @@
 package com.core2duofr.epinotes
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.StrictMode
 import android.preference.PreferenceManager
@@ -65,6 +66,15 @@ class EpinotesAccueilActivity : AppCompatActivity() {
         emploi_du_temps_button.setOnClickListener {
 //            val intent_emploi_du_temps: Intent = Intent(this, WebSiteActivity::class.java)
 //            startActivity(intent_emploi_du_temps)
+            val i: Intent?
+            try {
+                i = packageManager.getLaunchIntentForPackage("com.google.android.apps.calendar")
+                if (i == null) throw PackageManager.NameNotFoundException()
+                i.addCategory(Intent.CATEGORY_LAUNCHER)
+                startActivity(i)
+            } catch (e: PackageManager.NameNotFoundException) {
+                // affiche que l'appli n'es pas présente sur le tel
+            }
             Toast.makeText(applicationContext,"Pas encore disponible... Google Calendar n'est pas opérationnel...! :-)", Toast.LENGTH_LONG).show()
 
         }
