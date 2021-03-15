@@ -65,7 +65,7 @@ class EpinotesAccueilActivity : AppCompatActivity() {
 
         emploi_du_temps_button.setOnClickListener {
 //            val intent_emploi_du_temps: Intent = Intent(this, WebSiteActivity::class.java)
-//            startActivity(intent_emploi_du_temps)
+//            startActivity(intent_emploi_du_temps) TEST
             val i: Intent?
             try {
                 i = packageManager.getLaunchIntentForPackage("com.google.android.apps.calendar")

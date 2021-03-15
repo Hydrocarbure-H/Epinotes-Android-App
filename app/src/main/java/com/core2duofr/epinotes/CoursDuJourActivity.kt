@@ -26,7 +26,7 @@ class CoursDuJourActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cours_du_jour)
 
-// Chargement du mail
+// Chargement du mail TEST
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val mail = preferences.getString("user_mail", "not_connected")
 // Requêtes au serveur

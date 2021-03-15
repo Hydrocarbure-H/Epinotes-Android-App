@@ -29,7 +29,7 @@ class AnnalesEtFichesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_annales_et_fiches)
-// Chargement du mail
+// Chargement du mail TEST
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val mail = preferences.getString("user_mail", "not_connected")
 // Requêtes au serveur
